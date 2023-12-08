@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #262626;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* 100% of the viewport height */
+        }
+
+        section {
+            padding: 1em;
+            width: 500px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #262626;
+            color: #8c8c8c;
+            padding: 10px;
+        }
+        
+        h1 {
+            color: #ffffff;
+        }
+
+        #showInputBtn {
+            background: url('chip3.png') no-repeat;
+            background-size: cover;
+            color: white;
+            width: 400px;
+            height: 300px;
+            padding: 10px 20px;
+            border: 0px solid #000000;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.1s;
+        }
+
+        #showInputBtn:hover {
+            opacity: 0.9; /* 버튼에 마우스를 올렸을 때 투명도 조절 */
+        }
+
+        #inputSection {
+            display: none;
+            margin-top: 20px;
+            width: 400px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        #inputWord {
+            background-color: #767676;
+            padding: 4px ;
+            font-size: 22px;
+            width: 400px;
+            height: 34px;
+            border-radius: 30px;
+            border: 2px solid #8A2BE2;
+            background-clip: content-box;
+            text-align: center;
+        }
+
+        #submitBtn{
+            margin-right: 10px;
+            background-color: #8A2BE2;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        #hintText {
+            font-size: 14px;
+            color: #888;
+            text-align: left;
+        }
+
+        #inputWord, #submitBtn {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+    </style>
+</head>
+<body>
+
+    <section>
+        <div id="showInputBtnContainer">
+            <button id="showInputBtn" onclick="toggleInputSection()"></button>
+            <div id="inputSection">
+                <p id="text"><h1>PASSWORD</h1></p>
+                <input type="password" maxlength='7' id="inputWord">
+                <p id="hintText" onclick="showHint()">Don't you know?</p>
+                <button id= "submitBtn" onclick="checkInput()">Acces</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023. 박수진, 박은우, 배어진. Unauthorized copying or reproduction prohibited.</p>
+    </footer>
+
+    <script>
+        function toggleInputSection() {
+            var inputSection = document.getElementById("inputSection");
+            var showInputBtn = document.getElementById("showInputBtn");
+
+            if (inputSection.style.display === "none") {
+                inputSection.style.display = "block";
+                showInputBtn.style.opacity = 0.5;
+            } else {
+                inputSection.style.display = "none";
+                showInputBtn.style.opacity = 1;
+            }
+        }
+
+        function showHint() {
+            alert("Hint: \nThe name of the project.\nYou can only use small Alphabet");
+        }
+
+        function checkInput() {
+            var enteredWord = document.getElementById("inputWord").value.toLowerCase();
+
+    // 입력한 단어가 특정 단어와 일치하는지 확인하여 다음 페이지로 이동
+    if (enteredWord === "believe") {
+        // "Believe.html"을 새 창에서 열기
+        window.open("Believe.html", "_blank");
+    } else {
+        alert("Access error. Try again.");
+    }
+        }
+    </script>
+
+</body>
+
+</html>

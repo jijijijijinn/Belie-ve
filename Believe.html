@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Believe</title>
+</head>
+<body>
+    <section id="section1">
+        <div class="poster-container">
+            <img src="poster.png" alt="Believe" class="poster" onclick="openPopup('https://www.youtube.com/embed/YOUR_VIDEO_ID')">
+        </div>
+    </section>
+
+    <section id="section2">
+        <div class="content">
+            <img src="Background.png" alt="Background" class="Background">
+            <!-- 첫 번째 캐릭터 정보 -->
+            <div class="character-description">
+                <img src="character.png" alt="Character_text" class="character">
+                <img src="character_T.png" alt="Character_text" class="character_text">
+            </div>
+    
+            <!-- 두 번째 캐릭터 정보 -->
+            <div class="additional-content">
+                <img src="S_character_T.png" alt="Sub_Character_text" class="S_character_text">
+                <img src="S_character.png" alt="Sub_Character_text" class="S_character">
+            </div>
+        </div>
+    </section>
+
+    <!-- 팝업 창 -->
+    <div class="popup" id="videoPopup" onclick="closePopup()">
+        <div class="popup-content">
+            <span class="close-btn">X</span>
+            <iframe src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023. 박수진, 박은우, 배어진. Unauthorized copying or reproduction prohibited.</p>
+    </footer>
+
+    <script>
+            // 팝업 열기
+    function openPopup(videoUrl) {
+        const popup = document.getElementById('videoPopup');
+        const iframe = popup.querySelector('iframe');
+        
+        // 팝업 내부 iframe의 소스를 동적으로 설정
+        iframe.src = videoUrl;
+
+        // 팝업 보이기
+        popup.style.display = 'flex';
+    }
+
+    // 팝업 닫기
+    function closePopup() {
+        const popup = document.getElementById('videoPopup');
+        const iframe = popup.querySelector('iframe');
+
+        // 팝업 내부 iframe의 소스 초기화
+        iframe.src = '';
+
+        // 팝업 숨기기
+        popup.style.display = 'none';
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+/* 전체 페이지 스타일 */
+html {
+    margin: 0;
+    padding: 0;
+    background-color: #262626;
+    color: #fff;
+}
+
+body {
+    background-image: url(BG_Poster.png);
+    background-size: cover; /* 이미지를 커버하도록 설정 */
+    background-position: center; /* 이미지를 가운데 정렬 */
+    background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+/* 각 섹션 스타일 */
+section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* 저작권 표시 */
+footer {
+    text-align: center;
+    background-color: #262626;
+    color: #8c8c8c;
+    padding: 10px;
+}
+
+/* 첫 번째 섹션 포스터 스타일 */
+.poster-container {
+    position: relative;
+    height: 100vh;
+}
+
+.poster {
+    width: auto;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 섹션 2 추가 스타일 */
+section#section2 {
+    margin-top: 10vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+/* 내용을 감싸는 컨테이너 스타일 */
+.content {
+    padding: 0 40px;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+#section2 {
+    position: relative;
+    text-align: center;
+}
+
+.content {
+    position: relative;
+    display: inline-block;
+}
+
+.Background {
+    display: block;
+    margin: 0 auto; /* 배경 이미지를 가운데 정렬합니다. */
+    max-width: 100%;
+    height: auto;
+}
+
+.character-description,
+.additional-content {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.character, .S_character {
+    display: inline-block;
+    max-width: 20%; /* 캐릭터 이미지를 50%로 설정하여 한 줄에 두 이미지가 나란히 놓이도록 합니다. */
+    height: auto;
+}
+
+.character_text, .S_character_text {
+    display: inline-block;
+    max-width: 60%; /* 텍스트 이미지도 50%로 설정하여 한 줄에 두 이미지가 나란히 놓이도록 합니다. */
+    height: auto;
+}
+
+.character {
+    padding-right: 20px;
+}
+
+.S_character {
+    padding-left: 20px;
+}
+
+.additional-content {
+    margin-top: 100px; /* 간격을 위해 일부 여백을 추가합니다. */
+    margin-bottom: 300px;
+}
+
+
+/* 미디어 쿼리 설정 */
+@media (min-width: 768px) {
+    .content {
+        flex-direction: row;
+    }
+
+    .character-description,
+    .additional-content {
+        margin-bottom: 0;
+    }
+
+    .character-description img,
+    .additional-content img {
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+    .character-info {
+        margin-left: 0;
+        text-align: center;
+        margin-top: 10;
+    }
+}
+
+/* 팝업 스타일 */
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%; /* 수정된 부분: 왼쪽 여백 대신 가운데 정렬을 위해 50%로 설정 */
+    top: 50%;
+    transform: translate(-50%, -50%); /* 추가된 부분: 가운데 정렬을 위한 트랜스폼 */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    max-width: 1000px;
+    max-height: 80vh;
+    background-color: #333;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    overflow: auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
